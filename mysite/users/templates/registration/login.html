@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+
+<header id="header" class="fixed-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+
+    <!-- <h1 class="logo me-auto me-lg-0"><a href="{% url 'login' %}">Login</a></h1> -->
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="active" href= "{% url 'home' %}">Home</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+    <div class="header-social-links">
+      <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.instagram.com/" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.github.com/" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+    </div>
+
+  </div>
+</header>
+
+<main id="main">
+
+<section class=" login">
+  <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+    <div class="card" style="width: auto; margin: auto">
+      <div class="card-body" >
+        <h1  style="text-align: center;">Log in</h1>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-12 mt-4">
+              <h5>Username</h5>
+              <input type="text" name="username" class="form-control" required/>
+            </div>
+            <div class="col-12 mt-3">
+              <h5>Password</h5>
+              <input type="password" name="password" class="form-control" required/>
+            </div>
+            <div class="col-12 d-grid mt-3">
+              <button type="submit" class="btn btn-primary">
+                Log in
+              </button>
+            </div>
+            <br>
+            <div class="col-12 mt-3">
+              <hr>
+              Don't have an account? <a href="{% url 'register' %}">Sign up</a> 
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+{% endblock %}
